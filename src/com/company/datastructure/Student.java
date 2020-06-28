@@ -1,4 +1,4 @@
-package com.company.linkedlist;
+package com.company.datastructure;
 
 public class Student {
     private int id;

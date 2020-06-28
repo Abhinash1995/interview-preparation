@@ -1,4 +1,4 @@
-package com.company.linkedlist;
+package com.company.datastructure.linkedlist.doublylinked;
 
 public class MainDoublyLinkList {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class MainDoublyLinkList {
         linkList.addLast("Raja");
         linkList.addFirst("Ramu");
         linkList.add("Mango");
-//        linkList.insertAt("Zoo",2);
+        linkList.insertAt("Zoo",2);
         linkList.printList();
         System.out.println();
         linkList.printInRev();

@@ -1,4 +1,4 @@
-package com.company.linkedlist;
+package com.company.datastructure.linkedlist.doublylinked;
 
 public class MyDoubleLinkList<X> {
 
@@ -99,10 +99,10 @@ public class MyDoubleLinkList<X> {
         }
         Node temp = currentNode;
         Node newNode = new Node(ele);
-        newNode.setPrev(currentNode);
-        newNode.setNext(currentNode.getNext());
-        currentNode.setNext(newNode);
-        temp.getNext().setPrev(newNode);
+        newNode.setPrev(currentNode.getPrev());
+        newNode.setNext(currentNode);
+        currentNode.getPrev().setNext(newNode);
+        currentNode.setPrev(newNode);
         size++;
     }
 

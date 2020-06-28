@@ -1,4 +1,4 @@
-package com.company.linkedlist;
+package com.company.datastructure.linkedlist.singlecircular;
 
 public class MyCircularSingleLinkList {
 

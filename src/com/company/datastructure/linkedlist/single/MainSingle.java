@@ -1,6 +1,6 @@
-package com.company.linkedlist;
+package com.company.datastructure.linkedlist.single;
 
-import java.util.LinkedList;
+import com.company.datastructure.Student;
 
 public class MainSingle {
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
-package com.company.linkedlist;
+package com.company.datastructure.linkedlist.single;
 
 
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MySingleLinkedList {
