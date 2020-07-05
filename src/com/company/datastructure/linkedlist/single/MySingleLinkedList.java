@@ -1,6 +1,7 @@
 package com.company.datastructure.linkedlist.single;
 
 
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MySingleLinkedList {
@@ -101,6 +102,11 @@ public class MySingleLinkedList {
         }
         size--;
         return ele;
+    }
+
+    public Object peek(){
+        final Node f = head;
+        return (f == null) ? null : f.data;
     }
 
     public Object removeLast() {
