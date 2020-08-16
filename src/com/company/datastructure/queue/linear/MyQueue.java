@@ -1,15 +1,15 @@
-package com.company.datastructure.queue;
+package com.company.datastructure.queue.linear;
 
 import java.util.NoSuchElementException;
 
-public class MyGenericQueue<X> {
+public class MyQueue {
 
-    private X[] data;
+    private Object data[];
     private int front;
     private int rear;
 
-    public MyGenericQueue(int capacity) {
-        data = (X[]) new Object[capacity];
+    public MyQueue(int capacity) {
+        data = new Object[capacity];
         front = -1;
         rear = -1;
     }
@@ -26,25 +26,37 @@ public class MyGenericQueue<X> {
         // +1 is as front and back start from -1 so actual size will be rear - front + 1
     }
 
-    public void enqueue(X ele) {
+    public void enqueue(Object ele) {
         //check if queue is full
-        if (rear == data.length) {
+        if (rear == data.length - 1) {
             System.out.println("Queue is full");
         }
         //check if any item added or not we can also check if size() == 0
-        if (front == -1)
-            front++; //if adding element for first time then increment front also
-        data[++rear] = ele;
+        else if (front == -1) {
+            //adding element for first time
+            front++;
+            rear++;
+            data[rear] = ele;
+        } else {
+            rear++;
+            data[rear] = ele;
+        }
     }
 
-    public X deQueue() {
-
-        if (size() == 0) {
+    public Object deQueue() {
+        Object item = null;
+        if (front == -1) {
             System.out.println("Queue is Empty");
         }
-        X item = data[front++];
-        if (front >= rear)
-            front = rear = -1; //if this is last item in the queue then queue needs to get reset to empty
+        //if this is last item in the queue then queue needs to get reset to empty
+        else if (front == rear) {
+            item = data[front];
+            front = -1;
+            rear = -1;
+        } else {
+            item = data[front];
+            front++;
+        }
         return item;
     }
 
@@ -59,7 +71,7 @@ public class MyGenericQueue<X> {
             return false;
     }
 
-    public X front() {//peek
+    public Object front() {//peek
         if (isEmpty()) {
             System.out.println("The Queue is empty");
             throw new NoSuchElementException("Queue is empty");
@@ -68,7 +80,7 @@ public class MyGenericQueue<X> {
         }
     }
 
-    public X rear() {
+    public Object rear() {
         if (isEmpty()) {
             System.out.println("The Queue is empty");
             throw new NoSuchElementException("Queue is empty");
@@ -77,7 +89,7 @@ public class MyGenericQueue<X> {
         }
     }
 
-    public boolean contains(X item) {
+    public boolean contains(Object item) {
         boolean found = false;
         if (size() == 0) {
             return found;
@@ -91,7 +103,7 @@ public class MyGenericQueue<X> {
         return found;
     }
 
-    public X access(int pos) {
+    public Object access(int pos) {
         if (size() == 0 || pos > size()) {
             throw new IllegalArgumentException("No item in the queue or Position entered is greater");
         }
@@ -107,10 +119,9 @@ public class MyGenericQueue<X> {
     }
 
     public void printQueue(){
-        for (int i = front; i < rear + 1; i++) {
+        for (int i = front; i < size(); i++) {
             System.out.println(data[i]);
         }
     }
-
 
 }

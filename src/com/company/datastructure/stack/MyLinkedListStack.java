@@ -10,7 +10,10 @@ public class MyLinkedListStack {
     private Node head;
     private int size;
     LinkedList<String> linkedList; //using java linked list
-    int top = -1;
+
+    public MyLinkedListStack() {
+        head = null;
+    }
 
     private static class Node {
         private Object data;
