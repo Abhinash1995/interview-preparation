@@ -25,8 +25,6 @@ public class MySingleLinkedList {
         }
     }
 
-
-
     public int size() {
         return size;
     }

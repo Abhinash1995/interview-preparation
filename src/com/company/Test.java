@@ -2,7 +2,12 @@ package com.company;
 
 public class Test {
     public static void main(String[] args) {
-        Student student = new Student("Ram", 5);
-        System.out.println(student.getName() + " " + student.getAge());
+        method(null);
+    }
+    public static void method(Object o) {
+        System.out.println("Object method");
+    }
+    public static void method(String s) {
+        System.out.println("String method");
     }
 }
